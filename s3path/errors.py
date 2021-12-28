@@ -25,7 +25,6 @@ def handle_client_error():
     try:
         yield
     except ClientError as client_error:
-        # LOGGER.error(str(client_error))
         error = client_error.response["Error"]
         try:
             exception_class, msg = _ERROR_MAP[error["Code"]]
@@ -33,5 +32,4 @@ def handle_client_error():
             pass
         else:
             raise exception_class(msg.format(**error))
-
         raise client_error
