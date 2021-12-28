@@ -1,6 +1,6 @@
 import pytest
 
-from s3path.s3path import S3Path
+from s3path import S3Path
 
 
 def test_read(mocked_s3_bucket_name):

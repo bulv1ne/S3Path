@@ -1,7 +1,8 @@
 [tool.poetry]
 name = "s3path"
 version = "0.1.0"
-description = ""
+description = "A pathlib.Path-like integration for S3"
+readme = "README.md"
 authors = ["Niels Lemmens <1936122+bulv1ne@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
