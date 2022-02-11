@@ -26,10 +26,7 @@ def handle_client_error():
         yield
     except ClientError as client_error:
         error = client_error.response["Error"]
-        try:
-            exception_class, msg = _ERROR_MAP[error["Code"]]
-        except KeyError:
-            pass
-        else:
+        if exception_msg := _ERROR_MAP.get(error["Code"]):
+            exception_class, msg = exception_msg
             raise exception_class(msg.format(**error))
         raise client_error
