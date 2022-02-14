@@ -77,3 +77,28 @@ jobs:
         coveralls --service=github --finish
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  artifact:
+    name: Create artifacts
+    needs:
+    - code-quality
+    - test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip poetry
+    - name: poetry build
+      run: |
+        poetry build
+    - uses: actions/upload-artifact@v2
+      with:
+        name: poetry-build
+        path: dist/*
