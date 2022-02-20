@@ -8,13 +8,10 @@ authors = ["Niels Lemmens <1936122+bulv1ne@users.noreply.github.com>"]
 license = "MIT"
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 boto3 = "*"
 
 [tool.poetry.dev-dependencies]
